@@ -11,11 +11,16 @@ function App() {
     }
   };
 
+  const deleteTodo = (index) => {
+    const newTodos = todos.filter((_, i) => i !== index);
+    setTodos(newTodos);
+  };
+
   return (
     <>
       <h1 className="text-4xl text-center pt-10">Todo App</h1>
       <AddTodo addTodo={addTodo}></AddTodo>
-      <TodoList todos={todos}></TodoList>
+      <TodoList todos={todos} deleteTodo={deleteTodo}></TodoList>
     </>
   );
 }
